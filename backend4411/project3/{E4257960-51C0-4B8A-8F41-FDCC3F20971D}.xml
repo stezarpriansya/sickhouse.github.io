@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<configuration date="2014/12/26" author="e.World Technology Ltd.">
+<project id="{E4257960-51C0-4B8A-8F41-FDCC3F20971D}" file="" name="project3" product="PHPMaker" version="11.0" datetime="2014/12/26 08:39:42" languagefolder="phplang" userlevel="0,&quot;Default&quot;,0">
+<table id="diagnosa" name="diagnosa" caption="diagnosa" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="dokter" name="dokter" caption="dokter" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="operasi" name="operasi" caption="operasi" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="pasien" name="pasien" caption="pasien" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="rawat_inap" name="rawat_inap" caption="rawat inap" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="ruang" name="ruang" caption="ruang" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="tim_dokter" name="tim_dokter" caption="tim dokter" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="user" name="user" caption="user" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+</project></configuration>

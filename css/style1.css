@@ -1,0 +1,69 @@
+
+.body {
+	background: #1FCFAA;
+	min-height: 337px;
+	font-size: 48px;
+	margin: auto;
+}
+
+.cari {
+	background: #00AD87;
+	min-height: 145px;
+}
+
+.foot {
+	background: #1FCFAA;
+	min-height: 80px;
+}
+
+form {
+	padding: 3% 5%;
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.login {
+	padding: 3% 5%;
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+}
+.judul {
+	font-size: 120px;
+	font-family: sans-serif;
+	font-weight: bold;
+	color: #EBEBEB;
+}
+
+.imgBody {
+	position: absolute;
+    left: 63%;
+    top: 13%;
+}
+
+.tulisan {
+	position: absolute;
+    left: 5%;
+    top: 13%;
+}
+
+input {
+	height: 40px;
+	border-style: none;
+}
+
+input[type=submit] {
+	border: 0px;
+	color: #1FCFAA;
+	background-color: #ffffff;
+}
+
+input[type=submit]:hover {
+
+	color: #ffffff;
+    border: 0px;
+    background-color: #EBEBEB;
+}
