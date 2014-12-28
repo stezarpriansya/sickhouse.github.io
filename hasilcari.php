@@ -75,11 +75,23 @@ include( 'temp/headercari.php' );
 				<?php
 					include "lib/koneksi.php";
 						$name= $_POST['cari']; //get the nama value from form
-						$q="SELECT pasien.kode_pasien, pasien.nama_pasien, pasien.tgl_datang, rawat_inap.kode_ruang 
-						FROM pasien 
-						LEFT OUTER JOIN rawat_inap on pasien.kode_pasien=rawat_inap.kode_pasien 
-						WHERE nama_pasien 
-						LIKE '%".$name."%'";  //query to get the search result
+						$q="SELECT 
+							nama_pasien, 
+							nama_ruang, 
+							gedung, 
+							tgl_datang
+							FROM (
+							SELECT 
+							pasien.kode_pasien, 
+							pasien.nama_pasien, 
+							pasien.tgl_datang, 
+							rawat_inap.kode_ruang
+							FROM pasien
+							LEFT OUTER JOIN rawat_inap 
+							ON pasien.kode_pasien = rawat_inap.kode_pasien
+							WHERE nama_pasien LIKE '%".$name."%') 
+							AS A
+							LEFT OUTER JOIN ruang ON A.kode_ruang = ruang.kode_ruang";  //query to get the search result
 						$result = mysql_query($q); //execute the query $q
 					while ($data = mysql_fetch_array($result)){
 					?>
