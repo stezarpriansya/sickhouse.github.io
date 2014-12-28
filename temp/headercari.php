@@ -18,9 +18,9 @@
 			echo "<ul>";
 			if(isset($_SESSION['username']))
 			{
+				echo "<li><a href='logout.php'>LOG OUT</a></li>";
 				echo "<li><a href='status.php'>STATUS</a></li>";
 				echo "<li><a href='profile.php'>HOME</a></li>";
-				echo "<li><a href='logout.php'>LOG OUT</a></li>";
 			}
 			else
 			{
