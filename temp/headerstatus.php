@@ -15,8 +15,8 @@
 		<div id="nav">
 			<ul>
 				<li><a href="logout.php">LOG OUT</a></li>
-				<li><a href="profile.php">HOME</a></li>
 				<li><a href="cari.php">CARI PASIEN</a></li>				
+				<li><a href="profile.php">HOME</a></li>
 			</ul>
 		</div>
 		<div class="clear"></div>
