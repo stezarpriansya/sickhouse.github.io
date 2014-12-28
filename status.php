@@ -1,6 +1,6 @@
 <?php
 session_start();
-include( 'temp/headerprofile.php' );
+include( 'temp/headerstatus.php' );
 if(!isset($_SESSION['username'])) {
 	header('location:index.php'); }
 else { $username = $_SESSION['username']; }
@@ -88,28 +88,72 @@ $dokter=$_SESSION['xx'];
 					$data2  = mysql_fetch_array($hasil2);
 					$jumCewek = $data2['jumCewek'];
 
+					if ($jumCowok==0&&$jumCewek==0){
+						$prosenCowok=0;
+						$prosenCewek=0;
 
-					// menghitung total Pasien
-					$total = $jumCowok + $jumCewek;
+						$panjangGrafikCowok = $prosenCowok * 30 / 100;
+						$panjangGrafikCewek = $prosenCewek * 30 / 100;
+					}
+					else if ($jumCowok==0&&$jumCewek<>0){
+						$total = $jumCowok + $jumCewek;
+						$prosenCowok=0;
+						$prosenCewek = $jumCewek/$total * 100;
 
-					// menghitung prosentase laki-laki dan perempuan
-					$prosenCowok = $jumCowok/$total * 100;
-					$prosenCewek = $jumCewek/$total * 100;
+						$panjangGrafikCowok = $prosenCowok * 30 / 100;
+						$panjangGrafikCewek = $prosenCewek * 30 / 100;
+
+					}
+					else if ($jumCewek==0&&$jumCowok<>0) {
+						$total = $jumCowok + $jumCewek;
+						$prosenCewek=0;
+
+						$panjangGrafikCowok = $prosenCowok * 30 / 100;
+						$panjangGrafikCewek = $prosenCewek * 30 / 100;
+					}
+					else{
+					
+						$total = $jumCowok + $jumCewek;
+						$prosenCowok = $jumCowok/$total * 100;
+						$prosenCewek = $jumCewek/$total * 100;
+
+						$panjangGrafikCowok = $prosenCowok * 30 / 100;
+						$panjangGrafikCewek = $prosenCewek * 30 / 100;
+						// menghitung prosentase laki-laki dan perempuan
+					
+					}
+					
 					$prosen1=number_format($prosenCowok,2);
-					$prosen2=number_format($prosenCewek,2);
-
-					// menentukan panjang grafik batang berdasarkan prosentase
-					$panjangGrafikCowok = $prosenCowok * 30 / 100;
-					$panjangGrafikCewek = $prosenCewek * 30 / 100;
+					$prosen2=number_format($prosenCewek,2);// menghitung total Pasien
 
 					?>
 					<h3>Rekapitulasi Pasien</h3> <br>
 					<h4>Berdasarkan Jenis Kelamin</h4><br>
-					<p><b>Laki-laki</b><br>Jumlah: <?php echo "$jumCowok Orang"; ?> <br> <?php echo "Persentase : $prosen1"; ?>%)
-					<div style="height: 20px; width: <?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;" title="Laki-laki (Jumlah: <?php sprintf("%01.1f",($jumCowok)); ?> | <?php sprintf("%01.1f",($prosenCowok)); ?>%)"></div></p>
-					<p><b>Perempuan</b><br>Jumlah: <?php echo "$jumCewek Orang"; ?> <br> <?php echo "Persentase : $prosen2"; ?>%) 
-					<div style="height: 20px; width: <?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;" title="Perempuan (Jumlah: <?php $jumCewek; ?> | <?php sprintf("%01.1f",($prosenCewek)); ?>%)"></div></p>
+					<p>
+						<b>Laki-laki</b><br>
+						Jumlah: 
+						<?php echo "$jumCowok Orang"; ?> <br> 
+						<?php echo "Persentase : $prosen1"; ?>%)
 
+						<div style="height: 20px; width: 
+							<?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;" 
+							title="Laki-laki 
+							(Jumlah: <?php sprintf("%01.1f",($jumCowok)); ?> | 
+							<?php sprintf("%01.1f",($prosenCowok)); ?>%)">
+						</div>
+					</p>
+					<p>
+						<b>Perempuan</b><br>
+						Jumlah: 
+						<?php echo "$jumCewek Orang"; ?> <br> 
+						<?php echo "Persentase : $prosen2"; ?>%) 
+
+						<div style="height: 20px; width: 
+							<?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;" 
+							title="Perempuan (Jumlah: <?php $jumCewek; ?> | 
+							<?php sprintf("%01.1f",($prosenCewek)); ?>%)">
+						</div>
+					</p>
 					<br>
 					<?php
 					echo "dari jumlah pasien : $total Orang";
