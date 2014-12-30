@@ -12,6 +12,7 @@
     .hdreg {
         width: 100%;
         background: #00AD87;
+        min-height: 120px;
     }
 
     input {
@@ -45,7 +46,7 @@
     }
 
     h2 {
-       padding: 1%;
+	padding: 6% 0% 0% 0%;
         text-align: center;
         color: #fff;
     }
