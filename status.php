@@ -30,7 +30,7 @@ $dokter=$_SESSION['xx'];
 
 	#content {
 		min-height: 300px;
-		padding: 2% 5%;
+		padding: 7% 5%;
 		background: #93CAB7;
 		min-width: 80%;
 	}
@@ -55,6 +55,30 @@ $dokter=$_SESSION['xx'];
 	h3 {
 		text-align: center;
 		color: #00B28B;
+	}
+
+	table { 
+	  width: 100%; 
+	  border-collapse: collapse; 
+	  margin: auto;
+	  overflow:auto;
+	  height: 20px;
+	}
+	/* Zebra striping */
+	tr{ 
+	  background: #eee; 
+
+	}
+	th { 
+	  background: #48AC86; 
+	  color: white; 
+	  font-weight: bold; 
+	  padding: 6px;
+	}
+
+	td,th { 
+	  padding: 6px;  
+	  text-align: left; 
 	}
 
 </style>
@@ -135,11 +159,7 @@ $dokter=$_SESSION['xx'];
 						<?php echo "$jumCowok Orang"; ?> <br> 
 						<?php echo "Persentase : $prosen1"; ?>%)
 
-						<div style="height: 20px; width: 
-							<?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;" 
-							title="Laki-laki 
-							(Jumlah: <?php sprintf("%01.1f",($jumCowok)); ?> | 
-							<?php sprintf("%01.1f",($prosenCowok)); ?>%)">
+						<div style="height: 20px; width:<?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;" title="<?php echo "$prosen1" ?>%">
 						</div>
 					</p>
 					<p>
@@ -148,16 +168,14 @@ $dokter=$_SESSION['xx'];
 						<?php echo "$jumCewek Orang"; ?> <br> 
 						<?php echo "Persentase : $prosen2"; ?>%) 
 
-						<div style="height: 20px; width: 
-							<?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;" 
-							title="Perempuan (Jumlah: <?php $jumCewek; ?> | 
-							<?php sprintf("%01.1f",($prosenCewek)); ?>%)">
-						</div>
+						<div style="height: 20px; width:<?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;" title="<?php echo "$prosen2" ?>%" ></div>
 					</p>
 					<br>
 					<?php
 					echo "dari jumlah pasien : $total Orang";
 					?>
+
+					
 
 				</div>
 
@@ -193,16 +211,16 @@ $dokter=$_SESSION['xx'];
 					<h4>Berdasarkan penanganan</h4><br>
 
 					<p><b>penanganan Obat</b><br>Jumlah: <?php echo "$jum1 Orang"; ?> <br> <?php echo "Persentase : $pros1"; ?>% 
-					<div style="height: 20px; width: <?php echo $panjangGrafik1; ?>%; background-color: #FC6605;" title="Obat (Jumlah: <?php sprintf("%d",($jum1)); ?> | <?php sprintf("%d",$prosen1); ?>%)"></div></p>
+					<div style="height: 20px; width: <?php echo $panjangGrafik1; ?>%; background-color: #FC6605;"></div></p>
 
 					<p><b>Penanganan Operasi</b><br>Jumlah: <?php echo "$jum2 Orang"; ?> <br> <?php echo "Persentase : $pros2"; ?>% 
-					<div style="height: 20px; width: <?php echo $panjangGrafik2; ?>%; background-color: #2288BB;" title="Operasi (Jumlah: <?php $jum2; ?> | <?php sprintf("%d",$prosen2); ?>%)"></div></p>
+					<div style="height: 20px; width: <?php echo $panjangGrafik2; ?>%; background-color: #2288BB;" ></div></p>
 
 					<br>
 					<?php
 					echo "dari jumlah pasien : $total Orang";
 					?>
-
+					
 				</div>    		
     		</div>
 	</div>
@@ -248,9 +266,9 @@ $dokter=$_SESSION['xx'];
 					<h3>Rekapitulasi Operasi</h3> <br>
 					<h4>Berdasarkan Jenis Kelamin</h4><br>
 					<p><b>Laki-laki</b><br>Jumlah: <?php echo "$jumCowok Orang"; ?> <br> <?php echo "Persentase : $prosen1"; ?>%)
-					<div style="height: 20px; width: <?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;" title="Laki-laki (Jumlah: <?php sprintf("%01.1f",($jumCowok)); ?> | <?php sprintf("%01.1f",($prosenCowok)); ?>%)"></div></p>
+					<div style="height: 20px; width: <?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;"></div></p>
 					<p><b>Perempuan</b><br>Jumlah: <?php echo "$jumCewek Orang"; ?> <br> <?php echo "Persentase : $prosen2"; ?>%) 
-					<div style="height: 20px; width: <?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;" title="Perempuan (Jumlah: <?php $jumCewek; ?> | <?php sprintf("%01.1f",($prosenCewek)); ?>%)"></div></p>
+					<div style="height: 20px; width: <?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;"></div></p>
 
 					<br>
 					<?php
