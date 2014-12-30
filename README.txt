@@ -3,7 +3,7 @@ sickhouse
 
 final project pengantar basis data
 
-===================================================================================================================
+============================
 CARA PAKAI:
 1. Buka XAMPP, start process APACHE dan MySQL
 2. Import rumahsakitfpfix.sql melalui PHPMyAdmin atau database tools lainnya
@@ -14,4 +14,4 @@ define("EW_CONN_PASS", '', TRUE); menjadi --> efine("EW_CONN_PASS", '<password r
 
 Credit :
 teamOne
-===================================================================================================================
+=============================
