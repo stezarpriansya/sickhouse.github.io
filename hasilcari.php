@@ -5,27 +5,32 @@ include( 'temp/headercari.php' );
 <style type="text/css">
 	
 	#content2 {
-		min-height: 560px;
+		min-height: 600px;
 	}
 
 	.hdcari {
 		width: 100%;
 		background: #00AD87;
+		min-height: 120px;
 
 	}
 
 	.tbcari {
 		background: #EEEEEE;
-		min-height:300px;
 		width: 850px;
 		margin: 10px auto;
-		margin-bottom: 10px;
+		margin-bottom: 60px;
+		overflow:auto;
+		height:470px;
+		border:1px #000000;
 	}
 
 	table { 
 	  width: 100%; 
 	  border-collapse: collapse; 
 	  margin: auto;
+	  overflow:auto;
+	  height: 20px;
 	}
 	/* Zebra striping */
 	tr:nth-of-type(odd) { 
@@ -49,6 +54,7 @@ include( 'temp/headercari.php' );
 		padding: 1%;
 		text-align: center;
 		color: #fff;
+		padding: 6% 0% 0% 0%;
 	}
 
 	.hdcari img {
@@ -70,7 +76,7 @@ include( 'temp/headercari.php' );
 <div class="clear"></div>
 	<div class="tbcari">
 		<table>
-				<thead><tr><th>Kode Pasien</th><th>Nama Pasien</th><th>Tanggal Datang</th><th>kode_ruang</th></tr></thead>
+				<thead><tr><th>Nama pasien</th><th>Nama ruang</th><th>Gedung</th><th>Tanggal datang</th><th>Tanggal keluar</th></tr></thead>
 					
 				<?php
 					include "lib/koneksi.php";
@@ -79,28 +85,27 @@ include( 'temp/headercari.php' );
 							nama_pasien, 
 							nama_ruang, 
 							gedung, 
-							tgl_datang
+							tgl_datang,
+							tgl_keluar
 							FROM (
-							SELECT 
-							pasien.kode_pasien, 
-							pasien.nama_pasien, 
-							pasien.tgl_datang, 
-							rawat_inap.kode_ruang
+							SELECT pasien.kode_pasien, pasien.nama_pasien, pasien.tgl_datang, pasien.tgl_keluar, rawat_inap.kode_ruang
 							FROM pasien
 							LEFT OUTER JOIN rawat_inap 
 							ON pasien.kode_pasien = rawat_inap.kode_pasien
 							WHERE nama_pasien LIKE '%".$name."%') 
 							AS A
-							LEFT OUTER JOIN ruang ON A.kode_ruang = ruang.kode_ruang";  //query to get the search result
+							LEFT OUTER JOIN ruang ON A.kode_ruang = ruang.kode_ruang
+							ORDER BY tgl_datang DESC";  //query to get the search result
 						$result = mysql_query($q); //execute the query $q
 					while ($data = mysql_fetch_array($result)){
 					?>
 					<tbody>
 						<tr>
-					  <td><?php echo"$data[kode_pasien]"; ?></td>
 					  <td><?php echo"$data[nama_pasien]"; ?></td>
+					  <td><?php echo"$data[nama_ruang]"; ?></td>
+					  <td><?php echo"$data[gedung]"; ?></td>
 					  <td><?php echo"$data[tgl_datang]"; ?></td>
-					  <td><?php echo"$data[kode_ruang]"; ?></td>
+					  <td><?php echo"$data[tgl_keluar]"; ?></td>
 					  </tr>
 					 </tbody>
 					<?php 
