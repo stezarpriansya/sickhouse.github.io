@@ -8,7 +8,7 @@
 <body>
 	<header>
 		<div id="logo">
-			<a href="#"><img src="images/logo.png" width="50px" height="50px"></a>
+			<a href="./"><img src="images/logo.png" width="50px" height="50px"></a>
 			<div><strong>RUMAH SAKIT PELITA HARAPAN</strong></div>
 		
 		</div>
