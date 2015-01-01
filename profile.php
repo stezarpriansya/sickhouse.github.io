@@ -39,7 +39,7 @@ $no1=1;
 
 	#content {
 		min-height: 300px;
-		padding: 3% 5%;
+		padding: 6% 5%;
 		background: #93CAB7;
 	}
 
