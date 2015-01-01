@@ -246,6 +246,7 @@ $dokter=$_SESSION['xx'];
 					// mencari jumlah laki-laki dari database
 					$query = "SELECT count(*) AS jumCowok 
 					FROM pasien
+					INNER JOIN operasi on pasien.kode_pasien=operasi.kode_pasien
 					WHERE jenis_kelamin = 'Laki-laki'";
 					$hasil = mysql_query($query);
 					$data  = mysql_fetch_array($hasil);
@@ -254,6 +255,7 @@ $dokter=$_SESSION['xx'];
 					// mencari jumlah perempuan dari database
 					$query = "SELECT count(*) AS jumCewek 
 					FROM pasien 
+					INNER JOIN operasi on pasien.kode_pasien=operasi.kode_pasien
 					WHERE jenis_kelamin = 'Perempuan'";
 					$hasil = mysql_query($query);
 					$data  = mysql_fetch_array($hasil);
