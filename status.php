@@ -19,13 +19,13 @@ $dokter=$_SESSION['xx'];
     
 	.left {
 		float: left;
-		width: 40%;
+		width: 50%;
 		padding-right: 3%;
 	}
 
 	.right {
 		float: right;
-		width: 60%;
+		width: 50%;
 	}
 
 	#content {
@@ -116,24 +116,24 @@ $dokter=$_SESSION['xx'];
 						$prosenCowok=0;
 						$prosenCewek=0;
 
-						$panjangGrafikCowok = $prosenCowok * 30 / 100;
-						$panjangGrafikCewek = $prosenCewek * 30 / 100;
+						$panjangGrafikCowok = $prosenCowok;
+						$panjangGrafikCewek = $prosenCewek;
 					}
 					else if ($jumCowok==0&&$jumCewek<>0){
 						$total = $jumCowok + $jumCewek;
 						$prosenCowok=0;
 						$prosenCewek = $jumCewek/$total * 100;
 
-						$panjangGrafikCowok = $prosenCowok * 30 / 100;
-						$panjangGrafikCewek = $prosenCewek * 30 / 100;
+						$panjangGrafikCowok = $prosenCowok;
+						$panjangGrafikCewek = $prosenCewek;
 
 					}
 					else if ($jumCewek==0&&$jumCowok<>0) {
 						$total = $jumCowok + $jumCewek;
 						$prosenCewek=0;
 
-						$panjangGrafikCowok = $prosenCowok * 30 / 100;
-						$panjangGrafikCewek = $prosenCewek * 30 / 100;
+						$panjangGrafikCowok = $prosenCowok;
+						$panjangGrafikCewek = $prosenCewek;
 					}
 					else{
 					
@@ -141,8 +141,8 @@ $dokter=$_SESSION['xx'];
 						$prosenCowok = $jumCowok/$total * 100;
 						$prosenCewek = $jumCewek/$total * 100;
 
-						$panjangGrafikCowok = $prosenCowok * 30 / 100;
-						$panjangGrafikCewek = $prosenCewek * 30 / 100;
+						$panjangGrafikCowok = $prosenCowok;
+						$panjangGrafikCewek = $prosenCewek;
 						// menghitung prosentase laki-laki dan perempuan
 					
 					}
@@ -153,29 +153,28 @@ $dokter=$_SESSION['xx'];
 					?>
 					<h3>Rekapitulasi Pasien</h3> <br>
 					<h4>Berdasarkan Jenis Kelamin</h4><br>
-					<p>
-						<b>Laki-laki</b><br>
-						Jumlah: 
-						<?php echo "$jumCowok Orang"; ?> <br> 
-						<?php echo "Persentase : $prosen1"; ?>%)
 
-						<div style="height: 20px; width:<?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;" title="<?php echo "$prosen1" ?>%">
-						</div>
-					</p>
-					<p>
-						<b>Perempuan</b><br>
-						Jumlah: 
-						<?php echo "$jumCewek Orang"; ?> <br> 
-						<?php echo "Persentase : $prosen2"; ?>%) 
-
-						<div style="height: 20px; width:<?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;" title="<?php echo "$prosen2" ?>%" ></div>
-					</p>
+					<table>
+						<thead><tr><th style="width:133px">Jenis Kelamin</th><th style="width:10px">Jumlah</th><th style="width:70px">Prosentase</th><th>Grafik</th></tr></thead>
+							<tbody>
+								  <tr>
+									  <td><?php echo"Laki-laki"; ?></td>
+									  <td><?php echo"$jumCowok"; ?></td>
+									  <td><?php echo"$prosen1"; ?>%</td>
+									  <td><div style="height: 20px; width:<?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;" title="<?php echo "$prosen1" ?>%"></div></td>
+								  </tr>
+								  <tr>
+									  <td><?php echo"Perempuan"; ?></td>
+									  <td><?php echo"$jumCewek"; ?></td>
+									  <td><?php echo"$prosen2"; ?>%</td>
+									  <td><div style="height: 20px; width:<?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;" title="<?php echo "$prosen2" ?>%"></div></td>
+								  </tr>
+							 </tbody>		
+					</table>
 					<br>
 					<?php
 					echo "dari jumlah pasien : $total Orang";
-					?>
-
-					
+					?>				
 
 				</div>
 
@@ -204,17 +203,28 @@ $dokter=$_SESSION['xx'];
 					$pros2=number_format($prosen2,2);
 
 					// menentukan panjang grafik batang berdasarkan prosentase
-					$panjangGrafik1 = $prosen1 * 30 / 100;
-					$panjangGrafik2 = $prosen2 * 30 / 100;
+					$panjangGrafik1 = $prosen1 ;
+					$panjangGrafik2 = $prosen2 ;
 
 					?>
 					<h4>Berdasarkan penanganan</h4><br>
-
-					<p><b>penanganan Obat</b><br>Jumlah: <?php echo "$jum1 Orang"; ?> <br> <?php echo "Persentase : $pros1"; ?>% 
-					<div style="height: 20px; width: <?php echo $panjangGrafik1; ?>%; background-color: #FC6605;"></div></p>
-
-					<p><b>Penanganan Operasi</b><br>Jumlah: <?php echo "$jum2 Orang"; ?> <br> <?php echo "Persentase : $pros2"; ?>% 
-					<div style="height: 20px; width: <?php echo $panjangGrafik2; ?>%; background-color: #2288BB;" ></div></p>
+					<table>
+						<thead><tr><th style="width:133px">Penanganan</th><th style="width:10px">Jumlah</th><th style="width:70px">Prosentase</th><th>Grafik</th></tr></thead>
+							<tbody>
+								  <tr>
+									  <td><?php echo"Obat"; ?></td>
+									  <td><?php echo"$jum1"; ?></td>
+									  <td><?php echo"$pros1"; ?>%</td>
+									  <td><div style="height: 20px; width:<?php echo $panjangGrafik1; ?>%; background-color: #FC6605;" title="<?php echo "$pros1" ?>%"></div></td>
+								  </tr>
+								  <tr>
+									  <td><?php echo"Operasi"; ?></td>
+									  <td><?php echo"$jum2"; ?></td>
+									  <td><?php echo"$pros2"; ?>%</td>
+									  <td><div style="height: 20px; width:<?php echo $panjangGrafik2; ?>%; background-color: #2288BB;" title="<?php echo "$pros2" ?>%"></div></td>
+								  </tr>
+							 </tbody>		
+					</table>
 
 					<br>
 					<?php
@@ -259,17 +269,30 @@ $dokter=$_SESSION['xx'];
 					$prosen2=number_format($prosenCewek,2);
 
 					// menentukan panjang grafik batang berdasarkan prosentase
-					$panjangGrafikCowok = $prosenCowok * 30 / 100;
-					$panjangGrafikCewek = $prosenCewek * 30 / 100;
+					$panjangGrafikCowok = $prosenCowok;
+					$panjangGrafikCewek = $prosenCewek;
 
 					?>
-					<h3>Rekapitulasi Operasi</h3> <br>
-					<h4>Berdasarkan Jenis Kelamin</h4><br>
-					<p><b>Laki-laki</b><br>Jumlah: <?php echo "$jumCowok Orang"; ?> <br> <?php echo "Persentase : $prosen1"; ?>%)
-					<div style="height: 20px; width: <?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;"></div></p>
-					<p><b>Perempuan</b><br>Jumlah: <?php echo "$jumCewek Orang"; ?> <br> <?php echo "Persentase : $prosen2"; ?>%) 
-					<div style="height: 20px; width: <?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;"></div></p>
-
+					<h3>Rekapitulasi Operasi</h3><br>
+					<h4>Pasien</h4>
+					<br>
+					<table>
+						<thead><tr><th style="width:133px">Jenis Kelamin</th><th style="width:10px">Jumlah</th><th style="width:70px">Prosentase</th><th>Grafik</th></tr></thead>
+							<tbody>
+								  <tr>
+									  <td><?php echo"Laki-laki"; ?></td>
+									  <td><?php echo"$jumCowok"; ?></td>
+									  <td><?php echo"$prosen1"; ?>%</td>
+									  <td><div style="height: 20px; width:<?php echo $panjangGrafikCowok; ?>%; background-color: #FC6605;" title="<?php echo "$prosen1" ?>%"></div></td>
+								  </tr>
+								  <tr>
+									  <td><?php echo"Perempuan"; ?></td>
+									  <td><?php echo"$jumCewek"; ?></td>
+									  <td><?php echo"$prosen2"; ?>%</td>
+									  <td><div style="height: 20px; width:<?php echo $panjangGrafikCewek; ?>%; background-color: #2288BB;" title="<?php echo "$prosen2" ?>%"></div></td>
+								  </tr>
+							 </tbody>		
+					</table>
 					<br>
 					<?php
 					echo "dari jumlah pasien : $total Orang";
