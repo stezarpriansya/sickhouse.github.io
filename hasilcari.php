@@ -5,7 +5,7 @@ include( 'temp/headercari.php' );
 <style type="text/css">
 	
 	#content2 {
-		min-height: 600px;
+		height: 623px;
 	}
 
 	.hdcari {
