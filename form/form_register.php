@@ -63,46 +63,46 @@
     <div class="content">
 
         <!--/ FORM REGISTER USER /-->
-        <form action="controller/controller_register.php" method="POST">
+        <form action="controller/controller_register.php" method="POST" enctype="multipart/form-data">
     <table>
         <tr>
-            <td>Nama Lengkap</td><td>:</td><td><input type="text" name="nama" /></td>
+            <td>Nama Lengkap</td><td>:</td><td><input type="text" name="nama" required /></td>
         </tr>
         <tr>
-            <td>Jenis Kelamin</td><td>:</td><td><input type="text" name="klmn" /></td>
+            <td>Jenis Kelamin</td><td>:</td><td><input type="text" name="klmn" required /></td>
         </tr>
         <tr>
-            <td>Tanggal Lahir</td><td>:</td><td><input type="date" name="tgl" /></td>
+            <td>Tanggal Lahir</td><td>:</td><td><input type="date" name="tgl" required /></td>
         </tr>
         <tr>
-            <td>Spesialisasi</td><td>:</td><td><input type="text" name="spesial" /></td>
+            <td>Spesialisasi</td><td>:</td><td><input type="text" name="spesial" required /></td>
         </tr>
         <tr>
-            <td>Alamat</td><td>:</td><td><input type="textarea" name="alamat" /></td>
+            <td>Alamat</td><td>:</td><td><input type="textarea" name="alamat" required /></td>
         </tr>
         <tr>
-            <td>Kota</td><td>:</td><td><input type="text" name="kota" /></td>
+            <td>Kota</td><td>:</td><td><input type="text" name="kota" required /></td>
         </tr>
         <tr>
-            <td>Telepon</td><td>:</td><td><input type="text" name="telepon" /></td>
+            <td>Telepon</td><td>:</td><td><input type="text" name="telepon" required /></td>
         </tr>
         <tr>
-            <td>SIP</td><td>:</td><td><input type="text" name="sip" /></td>
+            <td>SIP</td><td>:</td><td><input type="text" name="sip" required /></td>
         </tr>
         <tr>
-            <td>Avatar</td><td>:</td><td><input type="file" name="atr" /></td>
+            <td>Foto Profil</td><td>:</td><td><input type="file" name="atr" /></td>
         </tr>
         <tr>
-            <td>Username</td><td>:</td><td><input type="text" name="username" /></td>
+            <td>Username</td><td>:</td><td><input type="text" name="username" required /></td>
         </tr>
         <tr>
-            <td>Password</td><td>:</td><td><input type="password" name="password" /></td>
+            <td>Password</td><td>:</td><td><input type="password" name="password" required /></td>
         </tr>
         <tr>
             <td>Ulangi Password</td><td>:</td><td><input type="password" name="pwd" /></td>
         </tr>
         <tr>
-            <td></td><td></td><td><input type="submit" name="submit" value="Register" /></td>
+            <td></td><td></td><td><input type="submit" name="submit" value="Register" required /></td>
         </tr>
     </table>
     </form>
